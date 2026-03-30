@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: avto_mongo
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build: ./backend
+    container_name: avto_backend
+    restart: unless-stopped
+    depends_on:
+      - mongodb
+    environment:
+      # Ichki IP manzil beramiz (mongodb konteynerini o'zi topadi)
+      - MONGO_URI=mongodb://mongodb:27017/flash_master
+      - PORT=3000
+      - BOT_TOKEN=${BOT_TOKEN}
+      - WEB_APP_URL=${WEB_APP_URL}
+    ports:
+      - "3000:3000"
+
+  frontend:
+    build: ./frontend
+    container_name: avto_frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    # Trafik qabul qilinadi
+    ports:
+      - "5173:80"
+
+volumes:
+  mongo_data:
