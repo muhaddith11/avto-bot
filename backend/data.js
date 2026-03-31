@@ -1,5 +1,4 @@
-// BACKEND/DATA.JS (TO'LIQ MANUALLY EDITABLE KATALOG)
-// Siz hamma mashinaning har bir xizmati narxini alohida-alohida o'zgartira olasiz.
+// BACKEND/DATA.JS (TO'LIQ MANUALLY EDITABLE KATALOG - UPDATED STRUCTURE)
 
 const services = (price = 50000) => [
   { id: 1, name: "Diagnostika", price: price },
@@ -19,54 +18,174 @@ const services = (price = 50000) => [
 ];
 
 module.exports = {
-  "Chevrolet / Daewoo": {
-    "Cobalt": services(50000),
-    "Gentra": services(50000),
-    "Lasseti": services(50000),
-    "Malibu 1": services(70000),
-    "Malibu 2 XL": services(80000),
-    "Malibu Primer": services(100000),
-    "Damas": services(30000),
-    "Matiz": services(30000),
-    "Spark": services(50000),
-    "Nexia 1": services(40000),
-    "Nexia 2": services(40000),
-    "Nexia 3": services(50000),
-    "Onix": services(80000),
-    "Monza 1.3": services(80000),
-    "Monza 1.5": services(80000),
-    "Tahoe": services(150000),
-    "Traverse 1": services(120000),
-    "Traverse 2": services(120000),
-    "Tracker 1": services(60000),
-    "Tracker 2": services(80000),
-    "Equinox 1": services(100000),
-    "Equinox 2": services(110000),
+  "Audi": {
+    "A4": services(150000),
+    "A6": services(150000),
+    "A7": services(200000),
+    "A8": services(250000),
+    "Q2": services(120000),
+    "Q3": services(130000),
+    "Q5": services(150000),
+    "Q7": services(200000)
+  },
+  "BMW": {
+    "I3": services(150000),
+    "I4": services(180000),
+    "I5": services(200000),
+    "I7": services(250000),
+    "I9": services(300000),
+    "IX": services(250000), // Yangi model qo'shildi
+    "IX3": services(200000),
+    "X5": services(200000),
+    "X6": services(220000),
+    "X7 40I": services(250000)
+  },
+  "BYD": {
+    "Champion": services(100000),
+    "Chazor": services(100000),
+    "Han (XAN)": services(150000),
+    "Seal": services(150000),
+    "Seagull": services(80000),
+    "Song Gebrid": services(100000),
+    "Song Plus": services(120000),
+    "Song Pro": services(120000),
+    "Tang": services(150000),
+    "Xan Gibrid": services(150000),
+    "Yuan": services(100000),
+    "Yuan App": services(100000)
+  },
+  "Chery": {
+    "8 Pro": services(130000),
+    "Arizo 6 Pro": services(110000),
+    "Arizo 7 Pro": services(120000),
+    "Tiggo 6 Pro": services(120000),
+    "Tiggo 7 Pro": services(130000)
+  },
+  "Chevrolet": { // Daewoo olib tashlandi
     "Captiva 1": services(80000),
     "Captiva 2": services(80000),
     "Captiva 3": services(90000),
     "Captiva 4": services(90000),
     "Captiva 5": services(100000),
-    "Menlo": services(100000),
-    "Epica": services(80000),
+    "Cobalt": services(50000),
     "Cruze": services(70000),
-    "Tico": services(30000)
+    "Damas": services(30000),
+    "Epica": services(80000),
+    "Equinox 1": services(100000),
+    "Equinox 2": services(110000),
+    "Gentra": services(50000),
+    "Labo": services(30000),
+    "Lasseti": services(50000),
+    "Malibu 1": services(70000),
+    "Malibu 2 XL": services(80000),
+    "Malibu Primer": services(100000),
+    "Matiz": services(30000),
+    "Menlo": services(100000),
+    "Monza 1.3": services(80000),
+    "Monza 1.5": services(80000),
+    "Nexia 1": services(40000),
+    "Nexia 2": services(40000),
+    "Nexia 3": services(50000),
+    "Onix": services(80000),
+    "Orlando 1": services(80000),
+    "Orlando 2": services(90000),
+    "Spark": services(50000),
+    "Tahoe": services(150000),
+    "Tico": services(30000),
+    "Tracker 1": services(60000),
+    "Tracker 2": services(80000),
+    "Traverse 1": services(120000),
+    "Traverse 2": services(120000)
   },
-  "BYD": {
-    "Chazor": services(100000),
-    "Song Plus": services(150000),
-    "Song Gebrid": services(150000),
-    "Han (XAN)": services(200000),
-    "Seal": services(200000),
-    "Song Pro": services(150000),
-    "Tang": services(200000),
-    "Yuan": services(120000),
-    "Yuan App": services(120000),
-    "Seagull": services(100000),
-    "Champion": services(150000),
-    "Xan Gibrid": services(200000)
+  "Genesis": { // Hyundai dan ajratildi
+    "G70": services(150000),
+    "G80": services(180000),
+    "G90": services(200000),
+    "GV60": services(150000),
+    "GV70": services(160000),
+    "GV80": services(200000)
   },
-  "Toyota / Lexus": {
+  "Haval": {
+    "Dargo": services(130000),
+    "H6": services(120000),
+    "Jolion": services(110000),
+    "M6": services(110000)
+  },
+  "Hyundai": {
+    "Avante": services(100000),
+    "Creta": services(100000),
+    "Elantra": services(100000),
+    "Ioniq 5": services(150000),
+    "Ioniq 6": services(150000),
+    "Palisat": services(180000),
+    "Porter": services(80000),
+    "Santafe": services(150000),
+    "Sonata": services(120000),
+    "Sonata 2008": services(110000),
+    "Staria": services(150000),
+    "Stariks": services(130000),
+    "Tranjet 2007": services(100000)
+  },
+  "KIA": {
+    "Bongo": services(80000),
+    "Bongo EV": services(100000),
+    "EV5": services(150000),
+    "EV6": services(180000),
+    "EV9": services(250000),
+    "K3": services(100000),
+    "K5": services(120000),
+    "K8": services(180000),
+    "K8 Restaling": services(200000),
+    "K9": services(250000),
+    "Karnival": services(200000),
+    "Morning": services(60000),
+    "Seltos": services(110000),
+    "Sonet": services(100000),
+    "Sorento": services(180000),
+    "Sportage": services(150000)
+  },
+  "Leapmotor": {
+    "C01": services(150000),
+    "C10": services(160000),
+    "C11": services(160000),
+    "C16": services(170000),
+    "T03": services(100000)
+  },
+  "Li Auto": {
+    "Li 6": services(200000),
+    "Li 7": services(220000),
+    "Li 8": services(240000),
+    "Li 9": services(260000),
+    "Li 9 Restalin": services(280000)
+  },
+  "Lexus": {
+    "ES 350": services(150000),
+    "GX460": services(200000),
+    "Lexus 570": services(250000)
+  },
+  "Mercedes-Benz": {
+    "124": services(100000),
+    "223": services(300000),
+    "E240": services(120000),
+    "E250": services(130000),
+    "E300": services(150000),
+    "EQA 250": services(180000),
+    "EQB 300": services(200000),
+    "EQE 350": services(250000),
+    "EQS 350": services(300000),
+    "EQS 450": services(350000),
+    "EQS 450 SUV": services(350000),
+    "EQS 580": services(400000),
+    "GL 450": services(250000),
+    "GLC 300": services(200000),
+    "GLE 450": services(250000),
+    "ML 320": services(180000),
+    "Sprinter": services(150000),
+    "Vito 2007": services(120000),
+    "W221": services(250000),
+    "W222": services(300000)
+  },
+  "Toyota": {
     "Camry": services(120000),
     "Corolla": services(100000),
     "Corolla 2008": services(100000),
@@ -74,32 +193,37 @@ module.exports = {
     "Highlander": services(180000),
     "LC200": services(250000),
     "LC250": services(250000),
-    "LC300": services(300000),
-    "Lexus 570": services(250000),
-    "GX460": services(200000),
-    "ES 350": services(150000)
+    "LC300": services(300000)
   },
-  "Mercedes / BMW / Audi": {
-    "S-Class": services(300000),
-    "E300": services(200000),
-    "G-Wagen": services(400000),
-    "X5": services(250000),
-    "X6": services(250000),
-    "X7 40I": services(300000),
-    "A8": services(300000),
-    "Q7": services(250000)
-  },
-  "Zeekr / Li Auto / Leap Motor": {
-    "Zeekr 001": services(250000),
-    "Zeekr 007": services(250000),
-    "Zeekr X": services(200000),
-    "Li 7": services(250000),
-    "Li 9": services(300000),
-    "C11": services(150000),
-    "T03": services(100000),
-    "Voyah Free": services(250000)
+  "Zeekr": {
+    "001": services(250000),
+    "007": services(230000),
+    "X": services(200000),
+    "X7": services(250000)
   },
   "Boshqa": {
-    "Boshqa rusum": services(50000)
+    "Aralash": services(50000),
+    "Bestune T55": services(100000),
+    "Bestune T99": services(120000),
+    "Dashing": services(100000),
+    "Denza N9": services(200000),
+    "Depal": services(150000),
+    "Depal S07": services(150000),
+    "JAC J7": services(100000),
+    "JAC JS8": services(120000),
+    "JAC M4": services(130000),
+    "JAC T30": services(100000),
+    "Lada Niva": services(50000),
+    "Lada Vesta": services(60000),
+    "T2": services(150000),
+    "Voyah Free": services(250000),
+    "VW Caddy": services(120000),
+    "VW ID.3": services(150000),
+    "VW ID.4": services(180000),
+    "VW ID.6": services(200000),
+    "X50": services(100000),
+    "X70": services(120000),
+    "X90": services(130000),
+    "X95": services(140000)
   }
 };
