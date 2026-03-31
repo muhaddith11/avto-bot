@@ -21,8 +21,9 @@ const workOrderSchema = new mongoose.Schema({
   services: [serviceSchema],
   parts: [partSchema],
   totalAmount: { type: Number, required: true },
-  mechanicChatId: { type: String, required: true }, // Telegram ID
-  createdAt: { type: Date, default: Date.now, expires: 86400 } // 24 hours TTL
+  mechanicChatId: { type: String, required: true },
+  mechanicMessageId: { type: Number }, // Telegram xabarini o'chirish uchun
+  createdAt: { type: Date, default: Date.now, expires: 86400 } // 24 soatdan so'keyin DB dan o'chadi
 }, { timestamps: true });
 
 module.exports = mongoose.model('WorkOrder', workOrderSchema);
