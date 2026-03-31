@@ -1,5 +1,23 @@
 // BACKEND/DATA.JS (YAKUNIY ANIQ NARXLAR BILAN)
 
+// Yordamchi funksiya: xizmatlar ro'yxati va narxlarni yaratish uchun
+const services = (price = 50000) => [
+  { id: 1, name: "Diagnostika", price: price },
+  { id: 2, name: "Benzin sistemasini ko'rish", price: 100000 },
+  { id: 3, name: "Tabloda datchik o'chirish", price: 50000 },
+  { id: 4, name: "Svechalarni almashtirish", price: 40000 },
+  { id: 5, name: "Drosil tozalash", price: 60000 },
+  { id: 6, name: "Injector tozalash", price: 150000 },
+  { id: 7, name: "Probeg tekshirish", price: 50000 },
+  { id: 8, name: "Programma yozish", price: 200000 },
+  { id: 9, name: "Stage urish", price: 600000 },
+  { id: 10, name: "Gaz regulirovka", price: 50000 },
+  { id: 11, name: "Benzin nasos ko'rish", price: 80000 },
+  { id: 12, name: "Simlarni to'g'irlash", price: 100000 },
+  { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 150000 },
+  { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 100000 }
+];
+
 module.exports = {
   "Audi": {
     "A4": services(150000), "A6": services(150000), "A7": services(200000), "A8": services(250000),
@@ -75,10 +93,7 @@ module.exports = {
       { id: 11, name: "Benzin nasos ko'rish", price: 50000 }, { id: 12, name: "Simlarni to'g'irlash", price: 100000 },
       { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 150000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 100000 }
     ],
-    "Lasseti / Gentra": [
-      { id: 1, name: "Diagnostika", price: 50000 }, { id: 2, name: "Benzin sistemasini ko'rish", price: 120000 },
-      { id: 13, name: "Russifikatsiya", price: 150000 }
-    ],
+    "Lasseti / Gentra": services(100000),
     "Spark": [
       { id: 1, name: "Diagnostika", price: 50000 }, { id: 2, name: "Benzin sistemasini ko'rish", price: 150000 },
       { id: 3, name: "Tabloda datchik o'chirish", price: 50000 }, { id: 4, name: "Svechalarni almashtirish", price: 50000 },
@@ -113,6 +128,15 @@ module.exports = {
       { id: 7, name: "Probeg tekshirish", price: 100000 }, { id: 8, name: "Programma yozish", price: 800000 },
       { id: 9, name: "Stage urish", price: 600000 }, { id: 10, name: "Gaz regulirovka", price: 50000 },
       { id: 11, name: "Benzin nasos ko'rish", price: 80000 }, { id: 12, name: "Simlarni to'g'irlash", price: 100000 },
+      { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 150000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 100000 }
+    ],
+    "Gentra": [
+      { id: 1, name: "Diagnostika", price: 50000 }, { id: 2, name: "Benzin sistemasini ko'rish", price: 120000 },
+      { id: 3, name: "Tabloda datchik o'chirish", price: 50000 }, { id: 4, name: "Svechalarni almashtirish", price: 40000 },
+      { id: 5, name: "Drosil tozalash", price: 50000 }, { id: 6, name: "Injector tozalash", price: 70000 },
+      { id: 7, name: "Probeg tekshirish", price: 100000 }, { id: 8, name: "Programma yozish", price: 200000 },
+      { id: 9, name: "Stage urish", price: 600000 }, { id: 10, name: "Gaz regulirovka", price: 50000 },
+      { id: 11, name: "Benzin nasos ko'rish", price: 50000 }, { id: 12, name: "Simlarni to'g'irlash", price: 100000 },
       { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 150000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 100000 }
     ],
     "Cruze": [
@@ -233,6 +257,64 @@ module.exports = {
       { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 150000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 100000 }
     ]
   },
-  "Audi": { /* qolgan brendlar... */ },
-  // ... qolgan brendlar o'zgarishsiz qoldi.
+  "Genesis": {
+    "G70": services(150000), "G80": services(180000), "G90": services(200000),
+    "GV60": services(150000), "GV70": services(160000), "GV80": services(200000)
+  },
+  "Haval": {
+    "Dargo": services(130000), "H6": services(120000), "Jolion": services(110000), "M6": services(110000)
+  },
+  "Hyundai": {
+    "Avante": services(100000), "Creta": services(100000), "Elantra": services(100000),
+    "Ioniq 5": services(150000), "Ioniq 6": services(150000), "Palisat": services(180000),
+    "Porter": services(80000), "Santafe": services(150000), "Sonata": services(120000),
+    "Sonata 2008": services(110000), "Staria": services(150000), "Stariks": services(130000),
+    "Tranjet 2007": services(100000)
+  },
+  "KIA": {
+    "Bongo": services(80000), "Bongo EV": services(100000), "EV5": services(150000),
+    "EV6": services(180000), "EV9": services(250000), "K3": services(100000),
+    "K5": services(120000), "K8": services(180000), "K8 Restaling": services(200000),
+    "K9": services(250000), "Karnival": services(200000), "Morning": services(60000),
+    "Seltos": services(110000), "Sonet": services(100000), "Sorento": services(180000),
+    "Sportage": services(150000)
+  },
+  "Leapmotor": {
+    "C01": services(150000), "C10": services(160000), "C11": services(160000),
+    "C16": services(170000), "T03": services(100000)
+  },
+  "Li Auto": {
+    "Li 6": services(200000), "Li 7": services(220000), "Li 8": services(240000),
+    "Li 9": services(260000), "Li 9 Restalin": services(280000)
+  },
+  "Lexus": {
+    "ES 350": services(150000), "GX460": services(200000), "Lexus 570": services(250000)
+  },
+  "Mercedes-Benz": {
+    "124": services(100000), "223": services(300000), "E240": services(120000),
+    "E250": services(130000), "E300": services(150000), "EQA 250": services(180000),
+    "EQB 300": services(200000), "EQE 350": services(250000), "EQS 350": services(300000),
+    "EQS 450": services(350000), "EQS 450 SUV": services(350000), "EQS 580": services(400000),
+    "GL 450": services(250000), "GLC 300": services(200000), "GLE 450": services(250000),
+    "ML 320": services(180000), "Sprinter": services(150000), "Vito 2007": services(120000),
+    "W221": services(250000), "W222": services(300000)
+  },
+  "Toyota": {
+    "Camry": services(120000), "Corolla": services(100000), "Corolla 2008": services(100000),
+    "Grand Highlander": services(180000), "Highlander": services(180000), "LC200": services(250000),
+    "LC250": services(250000), "LC300": services(300000)
+  },
+  "Zeekr": {
+    "001": services(250000), "007": services(230000), "X": services(200000), "X7": services(250000)
+  },
+  "Boshqa": {
+    "Aralash": services(50000), "Bestune T55": services(100000), "Bestune T99": services(120000),
+    "Dashing": services(100000), "Denza N9": services(200000), "Depal": services(150000),
+    "Depal S07": services(150000), "JAC J7": services(100000), "JAC JS8": services(120000),
+    "JAC M4": services(130000), "JAC T30": services(100000), "Lada Niva": services(50000),
+    "Lada Vesta": services(60000), "T2": services(150000), "Voyah Free": services(250000),
+    "VW Caddy": services(120000), "VW ID.3": services(150000), "VW ID.4": services(180000),
+    "VW ID.6": services(200000), "X50": services(100000), "X70": services(120000),
+    "X90": services(130000), "X95": services(140000)
+  }
 };
