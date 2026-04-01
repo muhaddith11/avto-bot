@@ -164,7 +164,9 @@ app.post('/api/order', async (req, res) => {
     let mechMsg;
     try {
       mechMsg = await bot.telegram.sendMessage(mechanicChatId, msg, { parse_mode: 'Markdown' });
-    } catch(e) {}
+    } catch(e) {
+      console.error("Mechanic sendMessage error:", e.message);
+    }
 
     // 2. Save Order with Message ID
     const order = new WorkOrder({
@@ -174,10 +176,13 @@ app.post('/api/order', async (req, res) => {
     await order.save();
 
     // 3. Send to Admin (Permanent copy)
-    if (ADMIN_ID && mechanicChatId !== ADMIN_ID) {
+    if (ADMIN_ID) {
       try {
-        await bot.telegram.sendMessage(ADMIN_ID, `📣 **YANGI CHEK (Nusxa)**\n\n` + msg, { parse_mode: 'Markdown' });
-      } catch(e) {}
+        console.log(`Sending admin copy to: ${ADMIN_ID}`);
+        await bot.telegram.sendMessage(String(ADMIN_ID), `📣 **YANGI CHEK (Nusxa)**\n\n` + msg, { parse_mode: 'Markdown' });
+      } catch(e) {
+        console.error("Admin sendMessage error:", e.message);
+      }
     }
 
     res.json({ success: true, orderId: order._id });
