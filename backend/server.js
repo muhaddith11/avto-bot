@@ -25,6 +25,12 @@ if (!BOT_TOKEN) {
   process.exit(1);
 }
 
+if (!ADMIN_ID) {
+  console.warn("⚠️ ADMIN_ID is NOT defined in .env! Admin will not receive receipt copies.");
+} else {
+  console.log(`✅ Admin copies will be sent to: ${ADMIN_ID}`);
+}
+
 // Telegram Bot Setup
 const bot = new Telegraf(BOT_TOKEN);
 bot.use(session());
@@ -73,6 +79,15 @@ bot.start(async (ctx) => {
   } else {
     ctx.session = { step: 'ASK_NAME' };
     await ctx.reply("Assalomu alaykum! Botdan foydalanish uchun ro'yxatdan o'tishingiz kerak.\n\nIltimos, Ism va Familiyangizni kiriting:");
+  }
+});
+
+bot.command('test_admin', async (ctx) => {
+  const chatId = ctx.chat.id.toString();
+  if (chatId === String(ADMIN_ID)) {
+    await ctx.reply(`Salom Admin! Sizning ID yingiz: ${ADMIN_ID} - hamma narsa to'g'ri sozlangan! ✅\nEndi qolgan ustalarning cheki ham sizga kelishi kerak.`);
+  } else {
+    await ctx.reply(`Siz xozircha admin emassiz. Sizning ID: ${chatId}\nBotingiz .env faylida ${ADMIN_ID} ID sini kutyapti.`);
   }
 });
 
