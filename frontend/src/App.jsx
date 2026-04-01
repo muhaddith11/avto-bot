@@ -35,19 +35,8 @@ function App() {
       .catch(err => {
         console.error(err);
         setLoading(false);
-        // Robust Fallback: ensures essential brands exist even in offline mode
-        setCatalogData({ 
-          brands: ['Chevrolet', 'Daewoo', 'Hyundai', 'Kia', 'Toyota', 'BYD', 'Boshqa'], 
-          catalog: { 
-            Chevrolet: { Gentra: { services: [], parts: [] }, Cobalt: { services: [], parts: [] } },
-            Daewoo: { Nexia: { services: [], parts: [] } },
-            Hyundai: { Sonata: { services: [], parts: [] } },
-            Kia: { K5: { services: [], parts: [] } },
-            Toyota: { Camry: { services: [], parts: [] } },
-            BYD: { Chazor: { services: [], parts: [] } },
-            Boshqa: { 'Model kiritish': { services: [], parts: [] } }
-          } 
-        });
+        // Fallback for demo if API fails
+        setCatalogData({ brands: ['Chevrolet'], catalog: { Chevrolet: { Gentra: [] } } });
       });
   }, []);
 
@@ -125,7 +114,7 @@ function App() {
       <main>
         {step === 1 && <StepCarInfo catalog={catalogData} onNext={handleNext} />}
         {step === 2 && <StepServices catalog={catalogData} onNext={handleNext} onPrev={handlePrev} />}
-        {step === 3 && <StepParts catalog={catalogData} onNext={handleNext} onPrev={handlePrev} />}
+        {step === 3 && <StepParts onNext={handleNext} onPrev={handlePrev} />}
         {step === 4 && <ReceiptPreview onPrev={handlePrev} onSubmit={handleSubmit} isSubmitting={isSubmitting} />}
       </main>
     </div>

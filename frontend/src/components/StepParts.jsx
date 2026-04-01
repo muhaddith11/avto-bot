@@ -2,13 +2,11 @@ import { useState } from 'react';
 import { useOrderStore } from '../store/useOrderStore';
 import { ArrowRight, ArrowLeft, PlusCircle, Trash2 } from 'lucide-react';
 
-export default function StepParts({ catalog, onNext, onPrev }) {
+export default function StepParts({ onNext, onPrev }) {
   const store = useOrderStore();
   const [partName, setPartName] = useState('');
   const [partQty, setPartQty] = useState(1);
   const [partPrice, setPartPrice] = useState('');
-
-  const availableParts = catalog?.catalog[store.brand]?.[store.model]?.parts || [];
 
   const handleAddPart = () => {
     if (!partName || !partPrice || partQty < 1) return;
@@ -25,38 +23,10 @@ export default function StepParts({ catalog, onNext, onPrev }) {
     setPartPrice('');
   };
 
-  const handleSelectStandardPart = (part) => {
-    store.addPart({
-      name: part.name,
-      quantity: 1,
-      price: part.price,
-      isCustom: false
-    });
-  };
-
   return (
     <div className="space-y-6 slide-in">
       <h2 className="text-xl font-semibold mb-2">Ehtiyot Qismlar (Zapchast)</h2>
       
-      {/* Predefined Parts Selection */}
-      {availableParts.length > 0 && (
-        <div className="mb-6 space-y-3">
-          <h3 className="text-sm font-medium text-gray-400">Tavsiya etilgan zapchastlar:</h3>
-          <div className="grid grid-cols-2 gap-3">
-            {availableParts.map(part => (
-              <button
-                key={part.id}
-                onClick={() => handleSelectStandardPart(part)}
-                className="flex flex-col items-start p-3 bg-gray-800 border border-gray-700 rounded-xl hover:border-orange-500/50 transition-all text-left"
-              >
-                <span className="text-xs font-medium text-gray-200">{part.name}</span>
-                <span className="text-[10px] text-orange-400 mt-1">{part.price.toLocaleString()} UZS</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* List Added Parts */}
       <div className="space-y-3">
         {store.parts.length === 0 ? (
@@ -87,8 +57,24 @@ export default function StepParts({ catalog, onNext, onPrev }) {
         )}
       </div>
 
+      {/* Quick Select Parts */}
+      <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700/50 mt-4">
+        <h3 className="text-xs font-medium text-gray-400 mb-3 uppercase tracking-wider">Tezkor tanlash</h3>
+        <div className="flex flex-wrap gap-2">
+          {['Svecha', 'Benzin nasos', 'Pampers'].map(name => (
+            <button
+              key={name}
+              onClick={() => setPartName(name)}
+              className="bg-gray-700 hover:bg-blue-600 text-gray-200 hover:text-white px-4 py-2 rounded-lg text-sm border border-gray-600 transition-all active:scale-95"
+            >
+              + {name}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Add Part Form */}
-      <div className="bg-gray-800 rounded-xl p-5 border border-gray-700 mt-6">
+      <div className="bg-gray-800 rounded-xl p-5 border border-gray-700 mt-4">
         <h3 className="text-sm font-medium text-gray-300 mb-4 flex items-center gap-2">
           <PlusCircle className="w-4 h-4 text-orange-400" /> Yangi Zapchast Qo'shish
         </h3>

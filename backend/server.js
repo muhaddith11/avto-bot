@@ -18,17 +18,11 @@ const PORT = process.env.PORT || 3000;
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/flash_master';
 const WEB_APP_URL = process.env.WEB_APP_URL || 'http://localhost:5173';
-const ADMIN_ID = process.env.ADMIN_ID || '8042807902';
+const ADMIN_ID = process.env.ADMIN_ID;
 
 if (!BOT_TOKEN) {
   console.error("BOT_TOKEN is missing in .env file");
   process.exit(1);
-}
-
-if (!ADMIN_ID) {
-  console.warn("⚠️ ADMIN_ID is NOT defined in .env! Admin will not receive receipt copies.");
-} else {
-  console.log(`✅ Admin copies will be sent to: ${ADMIN_ID}`);
 }
 
 // Telegram Bot Setup
@@ -79,15 +73,6 @@ bot.start(async (ctx) => {
   } else {
     ctx.session = { step: 'ASK_NAME' };
     await ctx.reply("Assalomu alaykum! Botdan foydalanish uchun ro'yxatdan o'tishingiz kerak.\n\nIltimos, Ism va Familiyangizni kiriting:");
-  }
-});
-
-bot.command('test_admin', async (ctx) => {
-  const chatId = ctx.chat.id.toString();
-  if (chatId === String(ADMIN_ID)) {
-    await ctx.reply(`Salom Admin! Sizning ID yingiz: ${ADMIN_ID} - hamma narsa to'g'ri sozlangan! ✅\nEndi qolgan ustalarning cheki ham sizga kelishi kerak.`);
-  } else {
-    await ctx.reply(`Siz xozircha admin emassiz. Sizning ID: ${chatId}\nBotingiz .env faylida ${ADMIN_ID} ID sini kutyapti.`);
   }
 });
 
@@ -179,9 +164,7 @@ app.post('/api/order', async (req, res) => {
     let mechMsg;
     try {
       mechMsg = await bot.telegram.sendMessage(mechanicChatId, msg, { parse_mode: 'Markdown' });
-    } catch(e) {
-      console.error("Mechanic sendMessage error:", e.message);
-    }
+    } catch(e) {}
 
     // 2. Save Order with Message ID
     const order = new WorkOrder({
@@ -191,13 +174,10 @@ app.post('/api/order', async (req, res) => {
     await order.save();
 
     // 3. Send to Admin (Permanent copy)
-    if (ADMIN_ID) {
+    if (ADMIN_ID && mechanicChatId !== ADMIN_ID) {
       try {
-        console.log(`Sending admin copy to: ${ADMIN_ID}`);
-        await bot.telegram.sendMessage(String(ADMIN_ID), `📣 **YANGI CHEK (Nusxa)**\n\n` + msg, { parse_mode: 'Markdown' });
-      } catch(e) {
-        console.error("Admin sendMessage error:", e.message);
-      }
+        await bot.telegram.sendMessage(ADMIN_ID, `📣 **YANGI CHEK (Nusxa)**\n\n` + msg, { parse_mode: 'Markdown' });
+      } catch(e) {}
     }
 
     res.json({ success: true, orderId: order._id });

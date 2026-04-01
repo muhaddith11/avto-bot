@@ -7,7 +7,7 @@ export default function StepServices({ catalog, onNext, onPrev }) {
   const [customName, setCustomName] = useState('');
   const [customPrice, setCustomPrice] = useState('');
   
-  const availableServices = catalog?.catalog?.[store.brand]?.[store.model]?.services || [];
+  const availableServices = catalog?.catalog[store.brand]?.[store.model] || [];
   
   const handleToggleStandard = (svc) => {
     const exists = store.services.findIndex(s => s.name === svc.name);
