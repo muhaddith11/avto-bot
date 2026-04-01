@@ -150,15 +150,15 @@ app.post('/api/order', async (req, res) => {
     if (services?.length) {
       msg += `🛠 **XIZMATLAR:**\n`;
       services.forEach((s, i) => msg += `${i+1}. ${s.name} - ${s.price.toLocaleString()} UZS\n`);
-      msg += `\n`;
+      msg += `🔹 **Xizmatlar jami:** ${totalServices.toLocaleString()} UZS\n\n`;
     }
     if (parts?.length) {
       msg += `⚙️ **EHTIYOT QISMLAR:**\n`;
       parts.forEach((p, i) => msg += `${i+1}. ${p.name} (${p.quantity} x ${p.price.toLocaleString()}) - ${(p.quantity * p.price).toLocaleString()} UZS\n`);
-      msg += `\n`;
+      msg += `🔹 **Zapchastlar jami:** ${totalParts.toLocaleString()} UZS\n\n`;
     }
     msg += `------------------------\n💰 **UMUMIY SUMMA:** ${totalAmount.toLocaleString()} UZS\n\n`;
-    msg += `(Ushbu tizimdagi ma'lumotlar 24 soatdan so'ng avtomatik tozalanadi)`;
+    msg += `_(Ushbu chek 24 soatdan so'ng avtomatik tozalanadi)_`;
 
     // 1. Send to Mechanic (Will be deleted in 24h)
     let mechMsg;
