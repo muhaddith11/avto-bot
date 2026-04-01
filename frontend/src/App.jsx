@@ -35,22 +35,17 @@ function App() {
       .catch(err => {
         console.error(err);
         setLoading(false);
-        // Fallback with fixed data structure
+        // Robust Fallback: ensures essential brands exist even in offline mode
         setCatalogData({ 
-          brands: ['Chevrolet'], 
+          brands: ['Chevrolet', 'Daewoo', 'Hyundai', 'Kia', 'Toyota', 'BYD', 'Boshqa'], 
           catalog: { 
-            Chevrolet: { 
-              Gentra: { 
-                services: [
-                  { id: 1, name: "🔍 Diagnostika", price: 60000 },
-                  { id: 4, name: "🕯️ Svechalarni almashtirish", price: 50000 }
-                ], 
-                parts: [
-                  { id: 101, name: "🕯️ Svecha (Orijinal)", price: 45000 },
-                  { id: 102, name: "⛽ Benzin Nasos (Komplekt)", price: 350000 }
-                ]
-              } 
-            } 
+            Chevrolet: { Gentra: { services: [], parts: [] }, Cobalt: { services: [], parts: [] } },
+            Daewoo: { Nexia: { services: [], parts: [] } },
+            Hyundai: { Sonata: { services: [], parts: [] } },
+            Kia: { K5: { services: [], parts: [] } },
+            Toyota: { Camry: { services: [], parts: [] } },
+            BYD: { Chazor: { services: [], parts: [] } },
+            Boshqa: { 'Model kiritish': { services: [], parts: [] } }
           } 
         });
       });
