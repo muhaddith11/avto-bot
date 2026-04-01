@@ -1,4 +1,4 @@
-// BACKEND/DATA.JS (To'liq xizmatlar va Zapchastlar ro'yxati)
+// BACKEND/DATA.JS (A-Z TARTIBIDAGI YANGLANGAN KATALOG)
 
 const services = (price = 50000) => [
   { id: 1, name: "🔍 Diagnostika", price: price },
@@ -31,66 +31,32 @@ const parts = (tier = "standard") => {
     { id: 103, name: "🧼 Pampers (Nasos filtri)", price: Math.round(25000 * m) },
     { id: 104, name: "💨 Havo filtri", price: Math.round(35000 * m) },
     { id: 105, name: "🛢️ Moy filtri", price: Math.round(30000 * m) },
-    { id: 106, name: "🔋 Akkumulyator", price: Math.round(650000 * m) },
-    { id: 107, name: "⛓️ Remen (Grm)", price: Math.round(180000 * m) }
+    { id: 106, name: "🔋 Akkumulyator", price: Math.round(650000 * m) }
   ];
 };
 
 module.exports = {
-  "Chevrolet": {
-    "Matiz": { services: services(50000), parts: parts("budget") },
-    "Tico": { services: services(50000), parts: parts("budget") },
-    "Damas": { services: services(50000), parts: parts("budget") },
-    "Spark": { services: services(50000), parts: parts("standard") },
-    "Nexia 1": { services: services(50000), parts: parts("standard") },
-    "Nexia 2": { services: services(50000), parts: parts("standard") },
-    "Nexia 3": { services: services(50000), parts: parts("standard") },
-    "Lasseti": { services: services(60000), parts: parts("standard") },
-    "Gentra": { services: services(60000), parts: parts("standard") },
-    "Cobalt": { services: services(60000), parts: parts("standard") },
-    "Cruze": { services: services(80000), parts: parts("standard") },
-    "Onix": { services: services(80000), parts: parts("standard") },
-    "Epica": { services: services(80000), parts: parts("standard") },
-    "Malibu 1": { services: services(100000), parts: parts("luxury") },
-    "Malibu 2 (Primer)": { services: services(120000), parts: parts("luxury") },
-    "Captiva 1,2,3": { services: services(80000), parts: parts("suv") },
-    "Captiva 4": { services: services(80000), parts: parts("suv") },
-    "Captiva 5": { services: services(100000), parts: parts("suv") },
-    "Tracker 1,2": { services: services(80000), parts: parts("suv") },
-    "Equinox": { services: services(100000), parts: parts("suv") },
-    "Orlando": { services: services(80000), parts: parts("suv") },
-    "Monza": { services: services(80000), parts: parts("standard") },
-    "Traverse": { services: services(120000), parts: parts("luxury") },
-    "Tahoe": { services: services(150000), parts: parts("luxury") }
+  "Audi": {
+    "A4": { services: services(150000), parts: parts("luxury") },
+    "A6": { services: services(180000), parts: parts("luxury") },
+    "A8": { services: services(250000), parts: parts("luxury") },
+    "Q5": { services: services(180000), parts: parts("suv") },
+    "Q7": { services: services(220000), parts: parts("suv") }
   },
-  "Daewoo": {
-    "Nexia 1": { services: services(50000), parts: parts("standard") },
-    "Nexia 2": { services: services(50000), parts: parts("standard") },
-    "Espero": { services: services(50000), parts: parts("standard") },
-    "Tico": { services: services(50000), parts: parts("budget") },
-    "Damas": { services: services(50000), parts: parts("budget") }
-  },
-  "Hyundai": {
-    "Accent": { services: services(80000), parts: parts("standard") },
-    "Elantra": { services: services(80000), parts: parts("standard") },
-    "Sonata": { services: services(100000), parts: parts("luxury") },
-    "Santa Fe": { services: services(120000), parts: parts("suv") },
-    "Tucson": { services: services(100000), parts: parts("suv") },
-    "Creta": { services: services(80000), parts: parts("suv") }
-  },
-  "Kia": {
-    "K5": { services: services(100000), parts: parts("luxury") },
-    "K8": { services: services(120000), parts: parts("luxury") },
-    "Seltos": { services: services(100000), parts: parts("suv") },
-    "Sportage": { services: services(100000), parts: parts("suv") },
-    "Sorento": { services: services(120000), parts: parts("suv") },
-    "Carnival": { services: services(150000), parts: parts("suv") }
+  "BMW": {
+    "i3": { services: services(150000), parts: parts("luxury") },
+    "iX": { services: services(250000), parts: parts("luxury") },
+    "X1": { services: services(150000), parts: parts("suv") },
+    "X5": { services: services(200000), parts: parts("suv") },
+    "X7": { services: services(250000), parts: parts("suv") },
+    "5 Series": { services: services(180000), parts: parts("luxury") },
+    "7 Series": { services: services(250000), parts: parts("luxury") }
   },
   "BYD": {
     "Chazor": { services: services(100000), parts: parts("standard") },
     "Song Plus": { services: services(120000), parts: parts("standard") },
-    "Han": { services: services(150000), parts: parts("luxury") },
     "Tang": { services: services(150000), parts: parts("suv") },
+    "Han": { services: services(150000), parts: parts("luxury") },
     "Seal": { services: services(150000), parts: parts("luxury") }
   },
   "Chery": {
@@ -98,35 +64,90 @@ module.exports = {
     "Tiggo 8 Pro": { services: services(120000), parts: parts("suv") },
     "Arrizo 6 Pro": { services: services(100000), parts: parts("standard") }
   },
-  "Jetour": {
-    "X70": { services: services(100000), parts: parts("suv") },
-    "X90": { services: services(120000), parts: parts("suv") },
-    "Dashing": { services: services(100000), parts: parts("suv") }
+  "Chevrolet": {
+    "Matiz": { services: services(50000), parts: parts("budget") },
+    "Spark": { services: services(50000), parts: parts("standard") },
+    "Nexia 1/2/3": { services: services(50000), parts: parts("standard") },
+    "Cobalt": { services: services(60000), parts: parts("standard") },
+    "Gentra": { services: services(60000), parts: parts("standard") },
+    "Damas": { services: services(50000), parts: parts("budget") },
+    "Tracker": { services: services(80000), parts: parts("suv") },
+    "Captiva": { services: services(100000), parts: parts("suv") },
+    "Malibu": { services: services(120000), parts: parts("luxury") },
+    "Equinox": { services: services(120000), parts: parts("suv") },
+    "Traverse": { services: services(150000), parts: parts("luxury") },
+    "Tahoe": { services: services(200000), parts: parts("luxury") },
+    "Monza": { services: services(80000), parts: parts("standard") }
   },
-  "Changan": {
-    "CS35 Plus": { services: services(100000), parts: parts("suv") },
-    "CS75 Plus": { services: services(120000), parts: parts("suv") },
-    "Uni-K": { services: services(150000), parts: parts("suv") }
+  "Genesis": {
+    "G70": { services: services(150000), parts: parts("luxury") },
+    "G80": { services: services(180000), parts: parts("luxury") },
+    "G90": { services: services(250000), parts: parts("luxury") },
+    "GV80": { services: services(220000), parts: parts("suv") }
   },
-  "Toyota": {
-    "Corolla": { services: services(100000), parts: parts("standard") },
-    "Camry": { services: services(120000), parts: parts("luxury") },
-    "Prado": { services: services(150000), parts: parts("suv") },
-    "Land Cruiser": { services: services(200000), parts: parts("suv") }
+  "Haval": {
+    "Dargo": { services: services(120000), parts: parts("suv") },
+    "M6": { services: services(100000), parts: parts("suv") },
+    "H6": { services: services(120000), parts: parts("suv") },
+    "Jolion": { services: services(100000), parts: parts("suv") }
+  },
+  "Hyundai": {
+    "Avante": { services: services(100000), parts: parts("standard") },
+    "Elantra": { services: services(100000), parts: parts("standard") },
+    "Sonata": { services: services(120000), parts: parts("luxury") },
+    "Santa Fe": { services: services(150000), parts: parts("suv") },
+    "Tucson": { services: services(120000), parts: parts("suv") },
+    "Staria": { services: services(150000), parts: parts("suv") }
+  },
+  "KIA": {
+    "K5": { services: services(120000), parts: parts("luxury") },
+    "Sportage": { services: services(120000), parts: parts("suv") },
+    "Sorento": { services: services(150000), parts: parts("suv") },
+    "Carnival": { services: services(180000), parts: parts("suv") },
+    "Bongo": { services: services(80000), parts: parts("standard") }
+  },
+  "Leapmotor": {
+    "C01": { services: services(150000), parts: parts("luxury") },
+    "C11": { services: services(150000), parts: parts("suv") },
+    "T03": { services: services(80000), parts: parts("budget") }
+  },
+  "Li Auto": {
+    "Li 6": { services: services(200000), parts: parts("suv") },
+    "Li 7": { services: services(220000), parts: parts("suv") },
+    "Li 8": { services: services(230000), parts: parts("suv") },
+    "Li 9": { services: services(250000), parts: parts("suv") }
+  },
+  "Lexus": {
+    "ES 350": { services: services(180000), parts: parts("luxury") },
+    "RX 350": { services: services(200000), parts: parts("suv") },
+    "LX 570": { services: services(250000), parts: parts("suv") },
+    "LX 600": { services: services(300000), parts: parts("suv") }
   },
   "Mercedes-Benz": {
     "C-Class": { services: services(150000), parts: parts("luxury") },
     "E-Class": { services: services(200000), parts: parts("luxury") },
-    "S-Class": { services: services(250000), parts: parts("luxury") },
-    "G-Class": { services: services(300000), parts: parts("luxury") }
+    "S-Class": { services: services(300000), parts: parts("luxury") },
+    "EQS": { services: services(350000), parts: parts("luxury") },
+    "W222": { services: services(300000), parts: parts("luxury") },
+    "G-Class": { services: services(350000), parts: parts("luxury") }
   },
-  "BMW": {
-    "3 Series": { services: services(150000), parts: parts("luxury") },
-    "5 Series": { services: services(200000), parts: parts("luxury") },
-    "7 Series": { services: services(250000), parts: parts("luxury") },
-    "X5/X6/X7": { services: services(250000), parts: parts("luxury") }
+  "Toyota": {
+    "Corolla": { services: services(100000), parts: parts("standard") },
+    "Camry": { services: services(120000), parts: parts("luxury") },
+    "Prado": { services: services(200000), parts: parts("suv") },
+    "LC300": { services: services(250000), parts: parts("suv") }
+  },
+  "Zeekr": {
+    "001": { services: services(200000), parts: parts("luxury") },
+    "007": { services: services(200000), parts: parts("luxury") },
+    "009": { services: services(250000), parts: parts("luxury") },
+    "X7": { services: services(150000), parts: parts("suv") }
   },
   "Boshqa": {
+    "Lada": { services: services(60000), parts: parts("standard") },
+    "JAC": { services: services(100000), parts: parts("standard") },
+    "Jetour": { services: services(120000), parts: parts("suv") },
+    "Volkswagen": { services: services(150000), parts: parts("standard") },
     "Model kiritish": { services: services(50000), parts: parts("standard") }
   }
 };
