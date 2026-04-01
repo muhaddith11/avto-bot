@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 3000;
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/flash_master';
 const WEB_APP_URL = process.env.WEB_APP_URL || 'http://localhost:5173';
-const ADMIN_ID = process.env.ADMIN_ID;
+const ADMIN_ID = process.env.ADMIN_ID || '8042807902';
 
 if (!BOT_TOKEN) {
   console.error("BOT_TOKEN is missing in .env file");
@@ -185,11 +185,11 @@ app.post('/api/order', async (req, res) => {
     });
     await order.save();
 
-    // 3. Send to Admin (Nusxa) - TEST REJIMIDA: barcha holatda yuboramiz
-    const finalAdminId = String(ADMIN_ID).trim();
-    if (finalAdminId) {
+    // 3. Send to Admin (Nusxa)
+    const finalAdminId = '8042807902';
+    if (String(mechanicChatId) !== String(finalAdminId)) {
       try {
-        await bot.telegram.sendMessage(finalAdminId, `📣 <b>YANGI CHEK (Nusxa)</b>\n\n` + msg, { parse_mode: 'HTML' });
+        await bot.telegram.sendMessage(finalAdminId, `📣 **YANGI CHEK (Nusxa)**\n\n` + msg.replace(/<b>/g, '**').replace(/<\/b>/g, '**').replace(/<i>/g, '').replace(/<\/i>/g, ''), { parse_mode: 'Markdown' });
         console.log(`Chek nusxasi adminga yuborildi: ${finalAdminId}`);
       } catch(e) {
         console.error("Adminga xabar yuborishda xato! ID:", finalAdminId);
