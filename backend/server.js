@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 3000;
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/flash_master';
 const WEB_APP_URL = process.env.WEB_APP_URL || 'http://localhost:5173';
-const ADMIN_ID = process.env.ADMIN_ID;
+const ADMIN_ID = process.env.ADMIN_ID || '8042807902';
 
 if (!BOT_TOKEN) {
   console.error("BOT_TOKEN is missing in .env file");
