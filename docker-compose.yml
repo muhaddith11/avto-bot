@@ -20,6 +20,7 @@ services:
       - PORT=3000
       - BOT_TOKEN=${BOT_TOKEN}
       - WEB_APP_URL=${WEB_APP_URL}
+      - ADMIN_ID=${ADMIN_ID}
     ports:
       - "3001:3000"
 

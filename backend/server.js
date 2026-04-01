@@ -81,6 +81,11 @@ bot.command('id', (ctx) => {
   ctx.reply(`Sizning Telegram ID: <code>${ctx.chat.id}</code>`, { parse_mode: 'HTML' });
 });
 
+// Bot ishlayotganini tekshirish uchun komanda
+bot.command('test', (ctx) => {
+  ctx.reply("✅ Bot ishlayapti!");
+});
+
 bot.on('text', async (ctx) => {
   if (!ctx.session || !ctx.session.step) return;
 
@@ -180,12 +185,15 @@ app.post('/api/order', async (req, res) => {
     });
     await order.save();
 
-    // 3. Send to Admin (Nusxa)
-    if (ADMIN_ID && String(mechanicChatId) !== String(ADMIN_ID)) {
+    // 3. Send to Admin (Nusxa) - TEST REJIMIDA: barcha holatda yuboramiz
+    const finalAdminId = String(ADMIN_ID).trim();
+    if (finalAdminId) {
       try {
-        await bot.telegram.sendMessage(ADMIN_ID, `📣 <b>YANGI CHEK (Nusxa)</b>\n\n` + msg, { parse_mode: 'HTML' });
+        await bot.telegram.sendMessage(finalAdminId, `📣 <b>YANGI CHEK (Nusxa)</b>\n\n` + msg, { parse_mode: 'HTML' });
+        console.log(`Chek nusxasi adminga yuborildi: ${finalAdminId}`);
       } catch(e) {
-        console.error("Adminga xarar yuborishda xato (ID tekshiring):", e.message);
+        console.error("Adminga xabar yuborishda xato! ID:", finalAdminId);
+        console.error("Xato tafsiloti:", e.message);
       }
     }
 
