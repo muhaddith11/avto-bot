@@ -76,6 +76,11 @@ bot.start(async (ctx) => {
   }
 });
 
+// ID ni aniqlash uchun komanda
+bot.command('id', (ctx) => {
+  ctx.reply(`Sizning Telegram ID: <code>${ctx.chat.id}</code>`, { parse_mode: 'HTML' });
+});
+
 bot.on('text', async (ctx) => {
   if (!ctx.session || !ctx.session.step) return;
 
@@ -138,46 +143,50 @@ app.post('/api/order', async (req, res) => {
     let totalParts = (parts || []).reduce((sum, p) => sum + (Number(p.price) * Number(p.quantity)), 0);
     const totalAmount = totalServices + totalParts;
 
-    // Receipt Text
-    let msg = `🧾 **ELEKTRON CHEK**\n\n`;
-    msg += `👤 **Usta:** ${mechanic ? mechanic.fullName : 'Noma\'lum'}\n`;
-    msg += `📞 **Tel:** ${mechanic ? mechanic.phoneNumber : 'Noma\'lum'}\n\n`;
-    msg += `🚗 **Avto:** ${brand} ${model}\n`;
-    msg += `🔢 **Davlat raqami:** ${plateNumber}\n`;
-    msg += `🛣 **Probeg:** ${probeg} km\n`;
-    msg += `🕒 **Sana:** ${new Date().toLocaleString('uz-UZ')}\n\n`;
+    // HTML Formatidagi Chek
+    let msg = `<b>🧾 ELEKTRON CHEK</b>\n\n`;
+    msg += `👤 <b>Usta:</b> ${mechanic ? mechanic.fullName : 'Noma\'lum'}\n`;
+    msg += `📞 <b>Tel:</b> ${mechanic ? mechanic.phoneNumber : 'Noma\'lum'}\n\n`;
+    msg += `🚗 <b>Avto:</b> ${brand} ${model}\n`;
+    msg += `🔢 <b>Davlat raqami:</b> ${plateNumber}\n`;
+    msg += `🛣 <b>Probeg:</b> ${probeg} km\n`;
+    msg += `🕒 <b>Sana:</b> ${new Date().toLocaleString('uz-UZ')}\n\n`;
 
     if (services?.length) {
-      msg += `🛠 **XIZMATLAR:**\n`;
+      msg += `🛠 <b>XIZMATLAR:</b>\n`;
       services.forEach((s, i) => msg += `${i+1}. ${s.name} - ${s.price.toLocaleString()} UZS\n`);
-      msg += `🔹 **Xizmatlar jami:** ${totalServices.toLocaleString()} UZS\n\n`;
+      msg += `🔹 <b>Xizmatlar jami:</b> ${totalServices.toLocaleString()} UZS\n\n`;
     }
     if (parts?.length) {
-      msg += `⚙️ **EHTIYOT QISMLAR:**\n`;
+      msg += `⚙️ <b>EHTIYOT QISMLAR:</b>\n`;
       parts.forEach((p, i) => msg += `${i+1}. ${p.name} (${p.quantity} x ${p.price.toLocaleString()}) - ${(p.quantity * p.price).toLocaleString()} UZS\n`);
-      msg += `🔹 **Zapchastlar jami:** ${totalParts.toLocaleString()} UZS\n\n`;
+      msg += `🔹 <b>Zapchastlar jami:</b> ${totalParts.toLocaleString()} UZS\n\n`;
     }
-    msg += `------------------------\n💰 **UMUMIY SUMMA:** ${totalAmount.toLocaleString()} UZS\n\n`;
-    msg += `_(Ushbu chek 24 soatdan so'ng avtomatik tozalanadi)_`;
+    msg += `------------------------\n💰 <b>UMUMIY SUMMA:</b> ${totalAmount.toLocaleString()} UZS\n\n`;
+    msg += `<i>(Ushbu chek 24 soatdan so'ng avtomatik tozalanadi)</i>`;
 
-    // 1. Send to Mechanic (Will be deleted in 24h)
+    // 1. Send to Mechanic
     let mechMsg;
     try {
-      mechMsg = await bot.telegram.sendMessage(mechanicChatId, msg, { parse_mode: 'Markdown' });
-    } catch(e) {}
+      mechMsg = await bot.telegram.sendMessage(mechanicChatId, msg, { parse_mode: 'HTML' });
+    } catch(e) {
+      console.error("Ustaga xabar yuborishda xato:", e.message);
+    }
 
-    // 2. Save Order with Message ID
+    // 2. Save Order
     const order = new WorkOrder({
       brand, model, probeg, plateNumber, services, parts, totalAmount, mechanicChatId,
       mechanicMessageId: mechMsg ? mechMsg.message_id : null
     });
     await order.save();
 
-    // 3. Send to Admin (Permanent copy)
-    if (ADMIN_ID && mechanicChatId !== ADMIN_ID) {
+    // 3. Send to Admin (Nusxa)
+    if (ADMIN_ID && String(mechanicChatId) !== String(ADMIN_ID)) {
       try {
-        await bot.telegram.sendMessage(ADMIN_ID, `📣 **YANGI CHEK (Nusxa)**\n\n` + msg, { parse_mode: 'Markdown' });
-      } catch(e) {}
+        await bot.telegram.sendMessage(ADMIN_ID, `📣 <b>YANGI CHEK (Nusxa)</b>\n\n` + msg, { parse_mode: 'HTML' });
+      } catch(e) {
+        console.error("Adminga xarar yuborishda xato (ID tekshiring):", e.message);
+      }
     }
 
     res.json({ success: true, orderId: order._id });
