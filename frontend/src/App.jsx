@@ -35,8 +35,24 @@ function App() {
       .catch(err => {
         console.error(err);
         setLoading(false);
-        // Fallback for demo if API fails
-        setCatalogData({ brands: ['Chevrolet'], catalog: { Chevrolet: { Gentra: [] } } });
+        // Fallback with fixed data structure
+        setCatalogData({ 
+          brands: ['Chevrolet'], 
+          catalog: { 
+            Chevrolet: { 
+              Gentra: { 
+                services: [
+                  { id: 1, name: "🔍 Diagnostika", price: 60000 },
+                  { id: 4, name: "🕯️ Svechalarni almashtirish", price: 50000 }
+                ], 
+                parts: [
+                  { id: 101, name: "🕯️ Svecha (Orijinal)", price: 45000 },
+                  { id: 102, name: "⛽ Benzin Nasos (Komplekt)", price: 350000 }
+                ]
+              } 
+            } 
+          } 
+        });
       });
   }, []);
 
