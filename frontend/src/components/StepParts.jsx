@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { useOrderStore } from '../store/useOrderStore';
 import { ArrowRight, ArrowLeft, PlusCircle, Trash2 } from 'lucide-react';
 
-export default function StepParts({ onNext, onPrev }) {
+export default function StepParts({ catalog, onNext, onPrev }) {
   const store = useOrderStore();
   const [partName, setPartName] = useState('');
   const [partQty, setPartQty] = useState(1);
   const [partPrice, setPartPrice] = useState('');
+
+  const availableParts = catalog?.catalog[store.brand]?.[store.model]?.parts || [];
 
   const handleAddPart = () => {
     if (!partName || !partPrice || partQty < 1) return;
@@ -23,10 +25,38 @@ export default function StepParts({ onNext, onPrev }) {
     setPartPrice('');
   };
 
+  const handleSelectStandardPart = (part) => {
+    store.addPart({
+      name: part.name,
+      quantity: 1,
+      price: part.price,
+      isCustom: false
+    });
+  };
+
   return (
     <div className="space-y-6 slide-in">
       <h2 className="text-xl font-semibold mb-2">Ehtiyot Qismlar (Zapchast)</h2>
       
+      {/* Predefined Parts Selection */}
+      {availableParts.length > 0 && (
+        <div className="mb-6 space-y-3">
+          <h3 className="text-sm font-medium text-gray-400">Tavsiya etilgan zapchastlar:</h3>
+          <div className="grid grid-cols-2 gap-3">
+            {availableParts.map(part => (
+              <button
+                key={part.id}
+                onClick={() => handleSelectStandardPart(part)}
+                className="flex flex-col items-start p-3 bg-gray-800 border border-gray-700 rounded-xl hover:border-orange-500/50 transition-all text-left"
+              >
+                <span className="text-xs font-medium text-gray-200">{part.name}</span>
+                <span className="text-[10px] text-orange-400 mt-1">{part.price.toLocaleString()} UZS</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* List Added Parts */}
       <div className="space-y-3">
         {store.parts.length === 0 ? (
