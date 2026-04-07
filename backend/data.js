@@ -364,10 +364,145 @@ module.exports = {
     "X 90": servicesXitoyBenzin(700000)
   },
   "KIA": {
-    "K5": servicesGibrid(700000, 150000), "K8": servicesGibrid(700000, 150000), 
-    "K9": servicesGibrid(700000, 150000), "Sorento": servicesGibrid(700000, 150000),
-    "Sportage": servicesGibrid(700000, 150000), "Carnival": servicesGibrid(700000, 150000),
-    "Bongo EV": servicesEV(), "EV5": servicesEV(), "EV6": servicesEV(), "EV9": servicesEV()
+    "Carnival": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Benzin sistemasini ko'rish", price: 700000 },
+      { id: 3, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 4, name: "Svechalarni almashtirish", price: 100000 },
+      { id: 5, name: "Drosil tozalash", price: 100000 }, { id: 6, name: "Injector tozalash", price: 600000 },
+      { id: 7, name: "Probeg tekshirish", price: 100000 }, { id: 8, name: "Programma yozish", price: 800000 },
+      { id: 9, name: "Stage urish", price: 600000 }, { id: 10, name: "Gaz regulirovka", price: 100000 },
+      { id: 11, name: "Benzin nasos ko'rish", price: 150000 }, { id: 12, name: "Simlarni to'g'irlash", price: 200000 },
+      { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 300000 }
+    ],
+    "Bongo": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Benzin sistemasini ko'rish", price: 500000 },
+      { id: 3, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 4, name: "Svechalarni almashtirish", price: 100000 },
+      { id: 5, name: "Drosil tozalash", price: 100000 }, { id: 6, name: "Injector tozalash", price: 600000 },
+      { id: 7, name: "Probeg tekshirish", price: 100000 }, { id: 8, name: "Programma yozish", price: 800000 },
+      { id: 9, name: "Stage urish", price: 600000 }, { id: 10, name: "Gaz regulirovka", price: 100000 },
+      { id: 11, name: "Benzin nasos ko'rish", price: 150000 }, { id: 12, name: "Simlarni to'g'irlash", price: 200000 },
+      { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 1200000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 300000 }
+    ],
+    "Bongo EV": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Batareya holatini tekshirish", price: 200000 },
+      { id: 3, name: "Simlarni to'g'irlash (Izolatsiya)", price: 500000 }, { id: 4, name: "Russifikatsiya (Rus tilida qilish)", price: 1200000 },
+      { id: 5, name: "Ilovalar (App) o'rnatish", price: 100000 }, { id: 6, name: "Probeg tekshirish", price: 100000 },
+      { id: 7, name: "Batareya yechish", price: 12000000 }, { id: 8, name: "Zaryadlash portini remonti", price: 600000 },
+      { id: 9, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 10, name: "Konditsioner remont", price: 600000 },
+      { id: 11, name: "Invertor holatini tekshirish", price: 100000 }
+    ],
+    "EV 3": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Batareya holatini tekshirish", price: 200000 },
+      { id: 3, name: "Simlarni to'g'irlash (Izolatsiya)", price: 500000 }, { id: 4, name: "Russifikatsiya (Rus tilida qilish)", price: 1200000 },
+      { id: 5, name: "Ilovalar (App) o'rnatish", price: 100000 }, { id: 6, name: "Probeg tekshirish", price: 100000 },
+      { id: 7, name: "Batareya yechish", price: 12000000 }, { id: 8, name: "Zaryadlash portini remonti", price: 600000 },
+      { id: 9, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 10, name: "Konditsioner remont", price: 600000 },
+      { id: 11, name: "Invertor holatini tekshirish", price: 100000 }
+    ],
+    "EV 5": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Batareya holatini tekshirish", price: 200000 },
+      { id: 3, name: "Simlarni to'g'irlash (Izolatsiya)", price: 500000 }, { id: 4, name: "Russifikatsiya (Rus tilida qilish)", price: 1200000 },
+      { id: 5, name: "Ilovalar (App) o'rnatish", price: 100000 }, { id: 6, name: "Probeg tekshirish", price: 100000 },
+      { id: 7, name: "Batareya yechish", price: 12000000 }, { id: 8, name: "Zaryadlash portini remonti", price: 600000 },
+      { id: 9, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 10, name: "Konditsioner remont", price: 600000 },
+      { id: 11, name: "Invertor holatini tekshirish", price: 100000 }
+    ],
+    "EV 6": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Batareya holatini tekshirish", price: 200000 },
+      { id: 3, name: "Simlarni to'g'irlash (Izolatsiya)", price: 500000 }, { id: 4, name: "Russifikatsiya (Rus tilida qilish)", price: 1200000 },
+      { id: 5, name: "Ilovalar (App) o'rnatish", price: 100000 }, { id: 6, name: "Probeg tekshirish", price: 100000 },
+      { id: 7, name: "Batareya yechish", price: 12000000 }, { id: 8, name: "Zaryadlash portini remonti", price: 600000 },
+      { id: 9, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 10, name: "Konditsioner remont", price: 600000 },
+      { id: 11, name: "Invertor holatini tekshirish", price: 100000 }
+    ],
+    "EV 9": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Batareya holatini tekshirish", price: 200000 },
+      { id: 3, name: "Simlarni to'g'irlash (Izolatsiya)", price: 500000 }, { id: 4, name: "Russifikatsiya (Rus tilida qilish)", price: 1200000 },
+      { id: 5, name: "Ilovalar (App) o'rnatish", price: 100000 }, { id: 6, name: "Probeg tekshirish", price: 100000 },
+      { id: 7, name: "Batareya yechish", price: 12000000 }, { id: 8, name: "Zaryadlash portini remonti", price: 600000 },
+      { id: 9, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 10, name: "Konditsioner remont", price: 600000 },
+      { id: 11, name: "Invertor holatini tekshirish", price: 100000 }
+    ],
+    "K 3": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Benzin sistemasini ko'rish", price: 500000 },
+      { id: 3, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 4, name: "Svechalarni almashtirish", price: 100000 },
+      { id: 5, name: "Drosil tozalash", price: 100000 }, { id: 6, name: "Injector tozalash", price: 600000 },
+      { id: 7, name: "Probeg tekshirish", price: 100000 }, { id: 8, name: "Programma yozish", price: 800000 },
+      { id: 9, name: "Stage urish", price: 600000 }, { id: 10, name: "Gaz regulirovka", price: 100000 },
+      { id: 11, name: "Benzin nasos ko'rish", price: 150000 }, { id: 12, name: "Simlarni to'g'irlash", price: 200000 },
+      { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 1200000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 300000 }
+    ],
+    "K 5": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Benzin sistemasini ko'rish", price: 500000 },
+      { id: 3, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 4, name: "Svechalarni almashtirish", price: 100000 },
+      { id: 5, name: "Drosil tozalash", price: 100000 }, { id: 6, name: "Injector tozalash", price: 600000 },
+      { id: 7, name: "Probeg tekshirish", price: 100000 }, { id: 8, name: "Programma yozish", price: 800000 },
+      { id: 9, name: "Stage urish", price: 600000 }, { id: 10, name: "Gaz regulirovka", price: 100000 },
+      { id: 11, name: "Benzin nasos ko'rish", price: 150000 }, { id: 12, name: "Simlarni to'g'irlash", price: 200000 },
+      { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 1200000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 300000 }
+    ],
+    "K 8": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Benzin sistemasini ko'rish", price: 700000 },
+      { id: 3, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 4, name: "Svechalarni almashtirish", price: 100000 },
+      { id: 5, name: "Drosil tozalash", price: 100000 }, { id: 6, name: "Injector tozalash", price: 600000 },
+      { id: 7, name: "Probeg tekshirish", price: 100000 }, { id: 8, name: "Programma yozish", price: 800000 },
+      { id: 9, name: "Stage urish", price: 600000 }, { id: 10, name: "Gaz regulirovka", price: 100000 },
+      { id: 11, name: "Benzin nasos ko'rish", price: 150000 }, { id: 12, name: "Simlarni to'g'irlash", price: 200000 },
+      { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 1200000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 300000 }
+    ],
+    "K 8 restaylin": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Benzin sistemasini ko'rish", price: 700000 },
+      { id: 3, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 4, name: "Svechalarni almashtirish", price: 100000 },
+      { id: 5, name: "Drosil tozalash", price: 100000 }, { id: 6, name: "Injector tozalash", price: 600000 },
+      { id: 7, name: "Probeg tekshirish", price: 100000 }, { id: 8, name: "Programma yozish", price: 800000 },
+      { id: 9, name: "Stage urish", price: 600000 }, { id: 10, name: "Gaz regulirovka", price: 100000 },
+      { id: 11, name: "Benzin nasos ko'rish", price: 150000 }, { id: 12, name: "Simlarni to'g'irlash", price: 200000 },
+      { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 1200000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 300000 }
+    ],
+    "K 9": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Benzin sistemasini ko'rish", price: 700000 },
+      { id: 3, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 4, name: "Svechalarni almashtirish", price: 100000 },
+      { id: 5, name: "Drosil tozalash", price: 100000 }, { id: 6, name: "Injector tozalash", price: 600000 },
+      { id: 7, name: "Probeg tekshirish", price: 100000 }, { id: 8, name: "Programma yozish", price: 800000 },
+      { id: 9, name: "Stage urish", price: 600000 }, { id: 10, name: "Gaz regulirovka", price: 100000 },
+      { id: 11, name: "Benzin nasos ko'rish", price: 150000 }, { id: 12, name: "Simlarni to'g'irlash", price: 200000 },
+      { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 1200000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 300000 }
+    ],
+    "Morning": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Benzin sistemasini ko'rish", price: 400000 },
+      { id: 3, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 4, name: "Svechalarni almashtirish", price: 100000 },
+      { id: 5, name: "Drosil tozalash", price: 100000 }, { id: 6, name: "Injector tozalash", price: 600000 },
+      { id: 7, name: "Probeg tekshirish", price: 100000 }, { id: 8, name: "Programma yozish", price: 800000 },
+      { id: 9, name: "Stage urish", price: 600000 }, { id: 10, name: "Gaz regulirovka", price: 100000 },
+      { id: 11, name: "Benzin nasos ko'rish", price: 150000 }, { id: 12, name: "Simlarni to'g'irlash", price: 200000 },
+      { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 1200000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 300000 }
+    ],
+    "Seltos": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Benzin sistemasini ko'rish", price: 500000 },
+      { id: 3, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 4, name: "Svechalarni almashtirish", price: 100000 },
+      { id: 5, name: "Drosil tozalash", price: 100000 }, { id: 6, name: "Injector tozalash", price: 600000 },
+      { id: 7, name: "Probeg tekshirish", price: 100000 }, { id: 8, name: "Programma yozish", price: 800000 },
+      { id: 9, name: "Stage urish", price: 600000 }, { id: 10, name: "Gaz regulirovka", price: 100000 },
+      { id: 11, name: "Benzin nasos ko'rish", price: 150000 }, { id: 12, name: "Simlarni to'g'irlash", price: 200000 },
+      { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 1200000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 300000 }
+    ],
+    "Sorento": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Benzin sistemasini ko'rish", price: 600000 },
+      { id: 3, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 4, name: "Svechalarni almashtirish", price: 100000 },
+      { id: 5, name: "Drosil tozalash", price: 100000 }, { id: 6, name: "Injector tozalash", price: 600000 },
+      { id: 7, name: "Probeg tekshirish", price: 100000 }, { id: 8, name: "Programma yozish", price: 800000 },
+      { id: 9, name: "Stage urish", price: 600000 }, { id: 10, name: "Gaz regulirovka", price: 100000 },
+      { id: 11, name: "Benzin nasos ko'rish", price: 150000 }, { id: 12, name: "Simlarni to'g'irlash", price: 200000 },
+      { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 1200000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 300000 }
+    ],
+    "Sportage": [
+      { id: 1, name: "Diagnostika", price: 100000 }, { id: 2, name: "Benzin sistemasini ko'rish", price: 600000 },
+      { id: 3, name: "Tabloda datchik o'chirish", price: 100000 }, { id: 4, name: "Svechalarni almashtirish", price: 100000 },
+      { id: 5, name: "Drosil tozalash", price: 100000 }, { id: 6, name: "Injector tozalash", price: 600000 },
+      { id: 7, name: "Probeg tekshirish", price: 100000 }, { id: 8, name: "Programma yozish", price: 800000 },
+      { id: 9, name: "Stage urish", price: 600000 }, { id: 10, name: "Gaz regulirovka", price: 100000 },
+      { id: 11, name: "Benzin nasos ko'rish", price: 150000 }, { id: 12, name: "Simlarni to'g'irlash", price: 200000 },
+      { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 1200000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 300000 }
+    ]
   },
   "Lada": {
     "Vesta": [
