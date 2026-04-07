@@ -1,6 +1,6 @@
-// BACKEND/DATA.JS (YAKUNIY ANIQ NARXLAR BILAN)
+// BACKEND/DATA.JS (YAKUNIY TOLI METADATA)
 
-// 1. ELEKTRON moshinalar uchun xizmatlar (BYD Electric, Hyundai Ioniq, VW ID, Leapmotor va h.k.)
+// 1. ELEKTRON moshinalar uchun (Notion narxlari)
 const servicesEV = () => [
   { id: 1, name: "Diagnostika", price: 100000 },
   { id: 2, name: "Batareya holatini tekshirish (SOH)", price: 200000 },
@@ -15,7 +15,7 @@ const servicesEV = () => [
   { id: 11, name: "Batareya yechish", price: 12000000 }
 ];
 
-// 2. GIBRID moshinalar uchun xizmatlar (BYD Gibrid, KIA, Hyundai Gibrid)
+// 2. GIBRID moshinalar uchun (Notion narxlari)
 const servicesGibrid = (benzinSistemPrice = 700000, nasosPrice = 300000) => [
   { id: 1, name: "Diagnostika", price: 100000 },
   { id: 2, name: "Benzin sistemasini ko'rish", price: benzinSistemPrice },
@@ -32,7 +32,7 @@ const servicesGibrid = (benzinSistemPrice = 700000, nasosPrice = 300000) => [
   { id: 13, name: "Prilojeniye (Ilovalar) o'rnatish", price: 300000 }
 ];
 
-// 3. Xitoy BENZINLI moshinalari uchun (Chery, Haval, Jetour, Bestune)
+// 3. Xitoy BENZINLI (Notion narxlari)
 const servicesXitoyBenzin = (benzinSistemPrice = 700000) => [
   { id: 1, name: "Diagnostika", price: 50000 },
   { id: 2, name: "Benzin sistemasini ko'rish", price: benzinSistemPrice },
@@ -46,7 +46,7 @@ const servicesXitoyBenzin = (benzinSistemPrice = 700000) => [
   { id: 10, name: "Gaz regulirovka", price: 100000 }
 ];
 
-// 4. CHEVROLET va eski modellar uchun (Hozircha eski narxlar saqlanadi)
+// 4. ESKI/BASIC moshinalar uchun (Legacy)
 const servicesLegacy = (price = 50000) => [
   { id: 1, name: "Diagnostika", price: price },
   { id: 2, name: "Benzin sistemasini ko'rish", price: 100000 },
@@ -71,10 +71,8 @@ module.exports = {
     "E-Tron": servicesEV()
   },
   "Bestune": {
-    "T 33": servicesXitoyBenzin(500000), 
-    "T 55": servicesXitoyBenzin(500000), 
-    "T 77": servicesXitoyBenzin(500000), 
-    "T 99": servicesXitoyBenzin(500000), 
+    "T 33": servicesXitoyBenzin(500000), "T 55": servicesXitoyBenzin(500000), 
+    "T 77": servicesXitoyBenzin(500000), "T 99": servicesXitoyBenzin(500000), 
     "B 70": servicesXitoyBenzin(500000)
   },
   "BMW": {
@@ -83,24 +81,16 @@ module.exports = {
     "X6": servicesLegacy(220000), "X7 40I": servicesLegacy(250000)
   },
   "BYD": {
-    "Champion (Elektron)": servicesEV(),
-    "Chazor (Gibrid)": servicesGibrid(700000, 300000),
-    "Han (Elektron)": servicesEV(),
-    "Seal (Elektron)": servicesEV(),
-    "Seagull (Elektron)": servicesEV(),
-    "Song Plus Gibrid": servicesGibrid(700000, 300000),
-    "Song Plus Elektron": servicesEV(),
-    "Song Pro (Gibrid)": servicesGibrid(700000, 300000),
-    "Tang (Elektron)": servicesEV(),
-    "Yuan (Elektron)": servicesEV(),
-    "e2 (Elektron)": servicesEV(),
-    "Dolphin (Elektron)": servicesEV()
+    "Champion (Elektron)": servicesEV(), "Chazor (Gibrid)": servicesGibrid(700000, 300000),
+    "Han (Elektron)": servicesEV(), "Seal (Elektron)": servicesEV(),
+    "Seagull (Elektron)": servicesEV(), "Song Plus Gibrid": servicesGibrid(700000, 300000),
+    "Song Plus Elektron": servicesEV(), "Song Pro (Gibrid)": servicesGibrid(700000, 300000),
+    "Tang (Elektron)": servicesEV(), "Yuan (Elektron)": servicesEV(),
+    "e2 (Elektron)": servicesEV(), "Dolphin (Elektron)": servicesEV()
   },
   "Chery": {
-    "8 Pro": servicesXitoyBenzin(700000), 
-    "Arizo 6 Pro": servicesXitoyBenzin(700000), 
-    "Arizo 7 Pro": servicesXitoyBenzin(700000),
-    "Tiggo 6 Pro": servicesXitoyBenzin(700000), 
+    "8 Pro": servicesXitoyBenzin(700000), "Arizo 6 Pro": servicesXitoyBenzin(700000), 
+    "Arizo 7 Pro": servicesXitoyBenzin(700000), "Tiggo 6 Pro": servicesXitoyBenzin(700000), 
     "Tiggo 7 Pro": servicesXitoyBenzin(700000)
   },
   "Chevrolet": {
@@ -108,9 +98,9 @@ module.exports = {
     "Nexia 1": servicesLegacy(50000), "Nexia 2": servicesLegacy(50000), "Nexia 3": servicesLegacy(50000),
     "Lasseti": servicesLegacy(50000), "Spark": servicesLegacy(50000), "Gentra": servicesLegacy(50000),
     "Cobalt": servicesLegacy(50000), "Onix": servicesLegacy(50000), "Malibu 1": servicesLegacy(50000),
-    "Malibu 2 / Primer": servicesLegacy(50000), "Tracker 1, 2": servicesLegacy(50000),
-    "Captiva 1-5": servicesLegacy(50000), "Equinox": servicesLegacy(50000), "Traverse": servicesLegacy(50000),
-    "Tahoe": servicesLegacy(50000), "Monza": servicesLegacy(50000)
+    "Malibu 2 / Primer": servicesLegacy(150000), "Tracker 1, 2": servicesLegacy(150000),
+    "Captiva 1-5": servicesLegacy(100000), "Equinox": servicesLegacy(100000), "Traverse": servicesLegacy(200000),
+    "Tahoe": servicesLegacy(200000), "Monza": servicesLegacy(100000)
   },
   "Genesis": {
     "G70": servicesLegacy(150000), "G80": servicesLegacy(180000), "G90": servicesLegacy(200000),
@@ -121,33 +111,23 @@ module.exports = {
     "Jolion": servicesXitoyBenzin(700000), "M6": servicesXitoyBenzin(700000)
   },
   "Hyundai": {
-    "Avante": servicesGibrid(600000, 150000), 
-    "Creta": servicesGibrid(500000, 150000), 
-    "Elantra": servicesGibrid(600000, 150000),
-    "Sonata": servicesGibrid(700000, 150000),
-    "Tucson": servicesGibrid(700000, 150000),
-    "Santa Fe": servicesGibrid(700000, 150000),
-    "Palisade": servicesGibrid(700000, 150000),
-    "Ioniq 5": servicesEV(), "Ioniq 6": servicesEV(), "Ioniq 7": servicesEV(), 
-    "Ioniq 8": servicesEV(), "Ioniq 9": servicesEV(),
+    "Avante": servicesGibrid(600000, 150000), "Creta": servicesGibrid(500000, 150000), 
+    "Elantra": servicesGibrid(600000, 150000), "Sonata": servicesGibrid(700000, 150000),
+    "Tucson": servicesGibrid(700000, 150000), "Santa Fe": servicesGibrid(700000, 150000),
+    "Palisade": servicesGibrid(700000, 150000), "Ioniq 5": servicesEV(), "Ioniq 6": servicesEV(),
+    "Ioniq 7": servicesEV(), "Ioniq 8": servicesEV(), "Ioniq 9": servicesEV(),
     "Porter": servicesLegacy(80000), "Staria": servicesLegacy(150000)
   },
   "Jetour": {
-    "T 2": servicesXitoyBenzin(700000), 
-    "Dashing": servicesXitoyBenzin(700000), 
-    "X 50": servicesXitoyBenzin(700000), 
-    "X 70": servicesXitoyBenzin(700000), 
+    "T 2": servicesXitoyBenzin(700000), "Dashing": servicesXitoyBenzin(700000), 
+    "X 50": servicesXitoyBenzin(700000), "X 70": servicesXitoyBenzin(700000), 
     "X 90": servicesXitoyBenzin(700000)
   },
   "KIA": {
-    "K5": servicesGibrid(700000, 150000), 
-    "K8": servicesGibrid(700000, 150000), 
-    "K9": servicesGibrid(700000, 150000),
-    "Sorento": servicesGibrid(700000, 150000),
-    "Sportage": servicesGibrid(700000, 150000),
-    "Carnival": servicesGibrid(700000, 150000),
-    "Bongo EV": servicesEV(),
-    "EV5": servicesEV(), "EV6": servicesEV(), "EV9": servicesEV()
+    "K5": servicesGibrid(700000, 150000), "K8": servicesGibrid(700000, 150000), 
+    "K9": servicesGibrid(700000, 150000), "Sorento": servicesGibrid(700000, 150000),
+    "Sportage": servicesGibrid(700000, 150000), "Carnival": servicesGibrid(700000, 150000),
+    "Bongo EV": servicesEV(), "EV5": servicesEV(), "EV6": servicesEV(), "EV9": servicesEV()
   },
   "Lada": {
     "Vesta": [
@@ -162,38 +142,55 @@ module.exports = {
       { id: 9, name: "Stage urish", price: 600000 },
       { id: 10, name: "Gaz regulirovka", price: 50000 }
     ],
-    "Niva": servicesLegacy(50000),
-    "Forza": servicesLegacy(60000)
+    "Niva": servicesLegacy(50000), "Forza": servicesLegacy(60000)
   },
   "Leapmotor": {
     "C01": servicesEV(), "C10": servicesEV(), "C11": servicesEV(), "T03": servicesEV()
   },
   "Li Auto": {
-    "Li 6": servicesEV(), "Li 7": servicesEV(), "Li 8": servicesEV(), "Li 9": servicesEV()
+    "Li 6": servicesLegacy(200000), "Li 7": servicesLegacy(220000), 
+    "Li 8": servicesLegacy(240000), "Li 9": servicesLegacy(260000), 
+    "Li 9 Restalin": servicesLegacy(280000)
   },
   "Lexus": {
     "ES 350": servicesLegacy(150000), "GX460": servicesLegacy(200000), "Lexus 570": servicesLegacy(250000)
   },
   "Mercedes-Benz": {
-    "W221": servicesLegacy(250000), "W222": servicesLegacy(300000), "W223": servicesLegacy(300000),
-    "EQA": servicesEV(), "EQB": servicesEV(), "EQE": servicesEV(), "EQS": servicesEV()
+    "124": servicesLegacy(100000), "223": servicesLegacy(300000), "E240": servicesLegacy(120000),
+    "E250": servicesLegacy(130000), "E300": servicesLegacy(150000), "EQA 250": servicesLegacy(180000),
+    "EQB 300": servicesLegacy(200000), "EQE 350": servicesLegacy(250000), "EQS 350": servicesLegacy(300000),
+    "EQS 450": servicesLegacy(350000), "EQS 450 SUV": servicesLegacy(350000), "EQS 580": servicesLegacy(400000),
+    "GL 450": servicesLegacy(250000), "GLC 300": servicesLegacy(200000), "GLE 450": servicesLegacy(250000),
+    "ML 320": servicesLegacy(180000), "Sprinter": servicesLegacy(150000), "Vito 2007": servicesLegacy(120000),
+    "W221": servicesLegacy(250000), "W222": servicesLegacy(300000)
   },
   "Tesla": {
     "Model 3": servicesEV(), "Model Y": servicesEV(), "Model S": servicesEV(), "Model X": servicesEV()
   },
   "Toyota": {
-    "Camry": servicesGibrid(700000, 150000), "Corolla": servicesLegacy(100000), "LC300": servicesLegacy(300000)
+    "Camry": servicesGibrid(700000, 150000), "Corolla": servicesLegacy(100000), 
+    "Grand Highlander": servicesLegacy(180000), "Highlander": servicesLegacy(180000), 
+    "LC200": servicesLegacy(250000), "LC250": servicesLegacy(250000), "LC300": servicesLegacy(300000)
   },
   "VW": {
     "ID.3": servicesEV(), "ID.4": servicesEV(), "ID.6": servicesEV(), "Caddy": servicesLegacy(120000)
   },
   "Zeekr": {
-    "001": servicesEV(), "007": servicesEV(), "X": servicesEV(), "009": servicesEV()
+    "001": servicesEV(), "007": servicesEV(), "X": servicesEV(), "X7": servicesEV()
   },
   "Boshqa": {
     "Aralash": servicesLegacy(50000),
     "Venucia": servicesXitoyBenzin(700000),
     "Nissan Altima": servicesLegacy(120000),
-    "Gazel": servicesLegacy(100000)
+    "Gazel": servicesLegacy(100000),
+    "Denza N9": servicesLegacy(200000),
+    "Depal": servicesLegacy(150000),
+    "Depal S07": servicesLegacy(150000),
+    "JAC J7": servicesLegacy(100000),
+    "JAC JS8": servicesLegacy(120000),
+    "JAC M4": servicesLegacy(130000),
+    "JAC T30": servicesLegacy(100000),
+    "Voyah Free": servicesLegacy(250000),
+    "X95": servicesLegacy(140000)
   }
 };
