@@ -61,7 +61,10 @@ export default function StepParts({ onNext, onPrev }) {
       <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700/50 mt-4">
         <h3 className="text-xs font-medium text-gray-400 mb-3 uppercase tracking-wider">Tezkor tanlash</h3>
         <div className="flex flex-wrap gap-2">
-          {['Svecha', 'Benzin nasos', 'Pampers'].map(name => (
+          {(['BYD', 'Tesla', 'Zeekr', 'Leapmotor', 'Li Auto'].includes(store.brand) 
+            ? ['Salonnaya filtr', 'Antifriz (EV)', 'Pult (Batareya)']
+            : ['Svecha', 'Benzin nasos', 'Pampers']
+          ).map(name => (
             <button
               key={name}
               onClick={() => setPartName(name)}

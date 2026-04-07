@@ -155,7 +155,7 @@ app.post('/api/order', async (req, res) => {
     msg += `🚗 <b>Avto:</b> ${brand} ${model}\n`;
     msg += `🔢 <b>Davlat raqami:</b> ${plateNumber}\n`;
     msg += `🛣 <b>Probeg:</b> ${probeg} km\n`;
-    msg += `🕒 <b>Sana:</b> ${new Date().toLocaleString('uz-UZ')}\n\n`;
+    msg += `🕒 <b>Sana:</b> ${new Date().toLocaleString('uz-UZ', { timeZone: 'Asia/Tashkent' }).replace(/\//g, '.')}\n\n`;
 
     if (services?.length) {
       msg += `🛠 <b>XIZMATLAR:</b>\n`;

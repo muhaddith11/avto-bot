@@ -21,6 +21,7 @@ services:
       - BOT_TOKEN=${BOT_TOKEN}
       - WEB_APP_URL=${WEB_APP_URL}
       - ADMIN_ID=${ADMIN_ID}
+      - TZ=Asia/Tashkent
     ports:
       - "3001:3000"
 
