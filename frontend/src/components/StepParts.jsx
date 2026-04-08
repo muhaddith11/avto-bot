@@ -63,7 +63,7 @@ export default function StepParts({ onNext, onPrev }) {
         <div className="flex flex-wrap gap-2">
           {(['BYD', 'Tesla', 'Zeekr', 'Leapmotor', 'Li Auto'].includes(store.brand) 
             ? ['Salonnaya filtr', 'Antifriz (EV)', 'Pult (Batareya)']
-            : ['Svecha', 'Benzin nasos', 'Pampers']
+            : ['Svecha', 'Benzin nasos', 'Pampers', 'Mushtek', 'Injektor', 'Salniy']
           ).map(name => (
             <button
               key={name}
