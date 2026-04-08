@@ -520,7 +520,7 @@ module.exports = {
     "Niva": servicesLegacy(50000), "Forza": servicesLegacy(60000)
   },
   "Leapmotor": {
-    "C01": servicesEV(), "C10": servicesEV(), "C11": servicesEV(), "T03": servicesEV()
+    "C01": servicesEV(), "C10": servicesEV(), "C11": servicesEV(), "C 16": servicesEV(), "T03": servicesEV()
   },
   "Li Auto": {
     "Li 6": servicesLegacy(200000), "Li 7": servicesLegacy(220000), 
@@ -566,6 +566,7 @@ module.exports = {
     "JAC M4": servicesLegacy(130000),
     "JAC T30": servicesLegacy(100000),
     "Voyah Free": servicesLegacy(250000),
-    "X95": servicesLegacy(140000)
+    "X95": servicesLegacy(140000),
+    "Neta S": servicesEV()
   }
 };
