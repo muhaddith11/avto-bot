@@ -340,6 +340,15 @@ module.exports = {
       { id: 9, name: "Stage urish", price: 600000 }, { id: 10, name: "Gaz regulirovka", price: 100000 },
       { id: 11, name: "Benzin nasos ko'rish", price: 500000 }, { id: 12, name: "Simlarni to'g'irlash", price: 200000 },
       { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 150000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 600000 }
+    ],
+    "Trailblazer": [
+      { id: 1, name: "Diagnostika", price: 50000 }, { id: 2, name: "Benzin sistemasini ko'rish", price: 1000000 },
+      { id: 3, name: "Tabloda datchik o'chirish", price: 50000 }, { id: 4, name: "Svechalarni almashtirish", price: 100000 },
+      { id: 5, name: "Drosil tozalash", price: 100000 }, { id: 6, name: "Injector tozalash", price: 600000 },
+      { id: 7, name: "Probeg tekshirish", price: 100000 }, { id: 8, name: "Programma yozish", price: 600000 },
+      { id: 9, name: "Stage urish", price: 600000 }, { id: 10, name: "Gaz regulirovka", price: 50000 },
+      { id: 11, name: "Benzin nasos ko'rish", price: 400000 }, { id: 12, name: "Simlarni to'g'irlash", price: 100000 },
+      { id: 13, name: "Russifikatsiya (Rus tilida qilish)", price: 150000 }, { id: 14, name: "Prilojeniye (Ilovalar) o'rnatish", price: 600000 }
     ]
   },
   "Genesis": {
